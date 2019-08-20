@@ -23,12 +23,8 @@ Ticker display_ticker;
 // enable double buffer for PxMatrix
 #define double_buffer
 #include <PxMatrix.h>
-//
-// I'm using Brian's version adapted for the TinyPICO
-// https://github.com/witnessmenow/PxMatrix
-//
-// If you are using a regular ESP32 you may be able to use
-// the library manager version https://github.com/2dom/PxMatrix
+// Can be installed from the library manager
+// https://github.com/2dom/PxMatrix
 //
 // Adafruit GFX library is a dependancy for the PxMatrix Library
 // Can be installed from the library manager
