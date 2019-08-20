@@ -23,7 +23,7 @@ Ticker display_ticker;
 // enable double buffer for PxMatrix
 #define double_buffer
 #include <PxMatrix.h>
-// Can be installed from the library manager
+// Download the latest version
 // https://github.com/2dom/PxMatrix
 //
 // Adafruit GFX library is a dependancy for the PxMatrix Library
