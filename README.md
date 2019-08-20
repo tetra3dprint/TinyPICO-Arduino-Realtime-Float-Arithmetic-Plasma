@@ -32,3 +32,6 @@ Brian Lough @witnessmenow Pico Matrix Shiled https://www.tindie.com/products/bri
 Made possible by the PxMatrix https://github.com/2dom/PxMatrix & the new double buffer functionality
   \ 
     currently uses Brians modified version for the TinyPICO https://github.com/witnessmenow/PxMatrix
+
+
+https://github.com/tetra3dprint/TinyPICO-Arduino-Realtime-Float-Arithmetic-Plasma
