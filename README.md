@@ -1,10 +1,25 @@
 # TinyPICO-Arduino-Realtime-Float-Arithmetic-Plasma
 
+A simple "Plasma Effect" demonstration on a 64 x 64 LED Matrix
+Ardunio IDE TinyPICO ESP32 code
+
+---
+
 video: https://www.youtube.com/embed/Vy6Xjx7Kiyc
 
-Ardunio IDE TinyPICO code
+Required hardware/software: -
 
-A simple "Plasma Effect" demonstration on a 64 x 64 LED Matrix
+Arduino IDE with ESP32 support installed https://github.com/espressif/arduino-esp32#installation-instructions
+
+LED Matrix - I got one from AliExpress
+
+@unexpectedmaker #TinyPICO https://www.crowdsupply.com/unexpected-maker/tinypico
+
+Brian Lough @witnessmenow Pico Matrix Shiled https://www.tindie.com/products/brianlough/tinypico-matrix-shield/
+
+Made possible by @2dom PxMatrix https://github.com/2dom/PxMatrix & the new double buffer functionality
+
+---
 
 The code is not efficient, but does make use of some lookup tables to speed some things up.
 This could be sped up with pure integer arithmetics and supporting lookup tables, but that would make the code a bit harder to play with and follow.
@@ -22,16 +37,4 @@ I was getting 88 fps in test mode and the Plasma averaged around 46 fps
 
 If you use this code then make sure you configure PxMatrix correctly for your LED Matrix
 
-Required hardware/software: -
 
-Arduino IDE with ESP32 support installed https://github.com/espressif/arduino-esp32#installation-instructions
-
-LED Matrix - I got one from AliExpress
-
-@unexpectedmaker #TinyPICO https://www.crowdsupply.com/unexpected-maker/tinypico
-
-Brian Lough @witnessmenow Pico Matrix Shiled https://www.tindie.com/products/brianlough/tinypico-matrix-shield/
-
-Made possible by the PxMatrix https://github.com/2dom/PxMatrix & the new double buffer functionality
-  \ 
-    currently uses Brians modified version for the TinyPICO https://github.com/witnessmenow/PxMatrix
