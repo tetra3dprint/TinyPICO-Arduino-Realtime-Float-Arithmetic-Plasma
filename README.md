@@ -29,7 +29,7 @@ The pallet is an array of RGB565 values that I created using another script. Jus
 
 I've included my attempt at an accurate FPS counter (± a couple FPS :)
 It shuold report a true frame count per 1000 milliseconds. It works quite well for testing code execution cost.
-Just comment out #define SHOW_FPS
+Just comment out #define SHOW_FPS to turn it off
 
 Additionally if you uncomment //#define BASIC_FPS_TEST this will just fill the Matrix with a fixed color instead of running the Plasma Effect. The idea of this is to guesstimates max realistic fps( if shown) in the current enviroment and implementation.
 
