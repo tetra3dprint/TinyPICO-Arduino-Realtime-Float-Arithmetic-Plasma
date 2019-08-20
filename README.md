@@ -1,4 +1,7 @@
 # TinyPICO-Arduino-Realtime-Float-Arithmetic-Plasma
+
+video: https://www.youtube.com/embed/Vy6Xjx7Kiyc
+
 Ardunio IDE TinyPICO code
 
 A simple "Plasma Effect" demonstration on a 64 x 64 LED Matrix
@@ -32,6 +35,3 @@ Brian Lough @witnessmenow Pico Matrix Shiled https://www.tindie.com/products/bri
 Made possible by the PxMatrix https://github.com/2dom/PxMatrix & the new double buffer functionality
   \ 
     currently uses Brians modified version for the TinyPICO https://github.com/witnessmenow/PxMatrix
-
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Vy6Xjx7Kiyc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
