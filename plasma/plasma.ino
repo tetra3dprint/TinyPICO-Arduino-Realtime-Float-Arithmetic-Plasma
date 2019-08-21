@@ -128,7 +128,7 @@ void loop() {
     for (float x = 0; x < MATRIX_WIDTH; x++) {
       tx = (x + fy) * Cos(ty) + Sin(ty);
       ty = y * Sin(tx) - Cos(tx) + fx;
-       c = 180 + (int)(Cos(tx) * Sin(tx * 2) * Cos(ty * 3) * Sin(ty * 4) * f360 + angOff);
+      c = 180 + (int)(Cos(tx) * Sin(tx * 2) * Cos(ty * 3) * Sin(ty * 4) * f360 + angOff);
       if (c < 0) c = 0;
       display.drawPixel(x, y, pallet[c % 360]);
     }
