@@ -6,7 +6,7 @@
 
     Written by @tetra3dprint
     Twiter: https://twitter.com/tetra3dprint
-    
+
     TinyPICO https://www.crowdsupply.com/unexpected-maker/tinypico
     by Seon
     Twitter: https://twitter.com/unexpectedmaker
@@ -22,11 +22,6 @@
 //------------------------------------------------------------------------------------------------------------------
 // Pallet of colors
 #include "pallet.h"
-//------------------------------------------------------------------------------------------------------------------
-// Ticker is used to call the draw function
-#include <Ticker.h>
-Ticker display_ticker;
-//
 //------------------------------------------------------------------------------------------------------------------
 // enable double buffer for PxMatrix
 #define double_buffer
@@ -53,9 +48,30 @@ float _cos[3600];
 //------------------------------------------------------------------------------------------------------------------
 PxMATRIX display(MATRIX_WIDTH, MATRIX_HEIGHT, /*P_LAT*/22, /*P_OE*/26/*TinyPICO*/, /*P_A*/19, /*P_B*/23, /*P_C*/18, /*P_D*/5, /*P_E*/15);
 //------------------------------------------------------------------------------------------------------------------
+// Ticker is used when no other peripherals such as wifi to maximise perfomrance of outputting pixels to the screen
+// If a peripheral such as wifi is used, then the interupt timer must also be used to avoid flickering.
+// Comment out #define NO_PERIPHERALS to use the interupt timer
+#define NO_PERIPHERALS
+//------------------------------------------------------------------------------------------------------------------
+#ifdef NO_PERIPHERALS
+#include <Ticker.h>
+Ticker display_ticker;
+//------------------------------------------------------------------------------------------------------------------
 void draw() {
   display.display(SHOW_TIME);
 }
+//------------------------------------------------------------------------------------------------------------------
+#else
+portMUX_TYPE timerMux = portMUX_INITIALIZER_UNLOCKED;
+hw_timer_t * timer = NULL;
+//------------------------------------------------------------------------------------------------------------------
+void IRAM_ATTR draw() {
+  // Increment the counter and set the time of ISR
+  portENTER_CRITICAL_ISR(&timerMux);
+  display.display(SHOW_TIME);
+  portEXIT_CRITICAL_ISR(&timerMux);
+}
+#endif
 //------------------------------------------------------------------------------------------------------------------
 // OTT FPS counter
 #define SHOW_FPS
@@ -75,7 +91,15 @@ void setup() {
   display.setBrightness(200);
   display.setTextColor(0x0000);
   display.setTextSize(1);
+  
+#ifdef NO_PERIPHERALS
   display_ticker.attach(0.002, draw);
+#else
+  timer = timerBegin(0, 80, true);
+  timerAttachInterrupt(timer, &draw, true);
+  timerAlarmWrite(timer, 2000, true);
+  timerAlarmEnable(timer);
+#endif
 
   delay(1000);
 #ifdef SHOW_FPS
