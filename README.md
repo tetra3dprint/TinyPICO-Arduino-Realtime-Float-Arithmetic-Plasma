@@ -4,6 +4,11 @@ A simple "Plasma Effect" demonstration on a 64 x 64 LED Matrix
 Ardunio IDE TinyPICO ESP32 code
 
 ---
+This is focused on performance so using peripherals such as wifi will cause the display to flicker.
+You will need to use interupt timers to avoid the flickering, however that comes with over 50% drop in performance.
+---
+
+
 
 video: https://www.youtube.com/embed/Vy6Xjx7Kiyc
 
