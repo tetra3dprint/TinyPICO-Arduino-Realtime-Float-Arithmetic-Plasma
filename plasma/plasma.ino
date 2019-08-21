@@ -122,13 +122,13 @@ void loop() {
   }
   //------------------------------------------------------------------------------------------------------------------
 #else
-  fx = ((Cos(ang1) + Sin(ang2)) * 20.0 );
-  fy = ((Sin(ang4) - Cos(ang3)) * 20.0 );
+  fx = (Cos(ang1) + Sin(ang2)) * 20;
+  fy = (Sin(ang4) - Cos(ang3)) * 20;
   for (float y = 0; y < MATRIX_HEIGHT; y++) {
     for (float x = 0; x < MATRIX_WIDTH; x++) {
-      tx = (x + fy) * Cos(ty) + Sin(ty) ;
-      ty = y * Sin(tx) - Cos(tx) + fx ;
-      c = (180 + (int)((Cos(tx) * Sin(tx * 2) * Cos(ty * 3) * Sin(ty * 4) * f360 ) + angOff )) % 1800;
+      tx = (x + fy) * Cos(ty) + Sin(ty);
+      ty = y * Sin(tx) - Cos(tx) + fx;
+       c = 180 + (int)(Cos(tx) * Sin(tx * 2) * Cos(ty * 3) * Sin(ty * 4) * f360 + angOff);
       if (c < 0) c = 0;
       display.drawPixel(x, y, pallet[c % 360]);
     }
