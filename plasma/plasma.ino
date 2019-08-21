@@ -66,7 +66,6 @@ portMUX_TYPE timerMux = portMUX_INITIALIZER_UNLOCKED;
 hw_timer_t * timer = NULL;
 //------------------------------------------------------------------------------------------------------------------
 void IRAM_ATTR draw() {
-  // Increment the counter and set the time of ISR
   portENTER_CRITICAL_ISR(&timerMux);
   display.display(SHOW_TIME);
   portEXIT_CRITICAL_ISR(&timerMux);
